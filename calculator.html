@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <link rel="stylesheet" type="text/css" href="calculator.css">
+</head>
+<body>
+    <div id="calculator">
+        <div id="display"></div>
+        <div id="buttons">
+            <div>
+                <button type="button" class="operation" data-label="clear">c</button>
+                <button type="button" class="operation" data-label="sign">&plusmn;</button>
+                <button type="button" class="operation" data-label="divide">&divide;</button>
+                <button type="button" class="operation" data-label="multiply">&times;</button>
+            </div>
+            <div>
+                <button type="button" data-label="7">7</button>
+                <button type="button" data-label="8">8</button>
+                <button type="button" data-label="9">9</button>
+                <button type="button" class="operation" data-label="subtract">&minus;</button>
+            </div>
+            <div>
+                <button type="button" data-label="4">4</button>
+                <button type="button" data-label="5">5</button>
+                <button type="button" data-label="6">6</button>
+                <button type="button" class="operation" data-label="add">&plus;</button>
+            </div>
+            <div class="short-row">
+                <div>
+                    <button type="button" data-label="1">1</button>
+                    <button type="button" data-label="2">2</button>
+                </div>
+                <div>
+                    <button type="button" class="zero" data-label="0">0</button>
+                </div>
+            </div>
+            <div class="short-row">
+                <div>
+                    <button type="button" data-label="3">3</button>
+                </div>
+                <div>
+                    <button type="button" data-label="decimal">.</button>
+                </div> 
+            </div>
+            <div class="short-row">
+                <button type="button" class="equals" data-label="equals">=</button>
+            </div>
+        </div>
+    </div>
+    <script src="calculator.js"></script>
+</body>
+</html>
