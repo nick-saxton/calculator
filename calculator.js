@@ -7,10 +7,6 @@ let currentOperation;
 
 display.textContent = "0";
 
-buttons.forEach((button) => {
-    button.addEventListener("click", buttonClickHandler);
-});
-
 function add(a, b) {
     return a + b;
 }
@@ -61,6 +57,20 @@ function operate(operator, a, b) {
     }
 }
 
+function handleDisplay() {
+    const currentFontSize = parseInt(window.getComputedStyle(display).fontSize);
+    if (display.textContent.length > 6) {
+        if (currentFontSize > 20) {
+            display.style.fontSize = currentFontSize * 0.85 + "px";
+        }
+        if (display.textContent.length > 17) {
+            display.textContent = parseFloat(display.textContent).toExponential(5);
+        }
+    } else {
+        display.style.fontSize = "48px";
+    }
+}
+
 function buttonClickHandler() {
     if (!this.classList.contains("operation")) {
         if (operationJustClicked) {
@@ -103,16 +113,13 @@ function buttonClickHandler() {
     }
 }
 
-function handleDisplay() {
-    const currentFontSize = parseInt(window.getComputedStyle(display).fontSize);
-    if (display.textContent.length > 6) {
-        if (currentFontSize > 20) {
-            display.style.fontSize = currentFontSize * 0.85 + "px";
-        }
-        if (display.textContent.length > 17) {
-            display.textContent = parseFloat(display.textContent).toExponential(5);
-        }
-    } else {
-        display.style.fontSize = "48px";
+buttons.forEach((button) => {
+    button.addEventListener("click", buttonClickHandler);
+});
+
+document.addEventListener("keypress", function(e) {
+    const button = document.querySelector(`[data-key="${e.keyCode}"]`);
+    if (button) {
+        button.click();
     }
-}
+});
